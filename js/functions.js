@@ -4,7 +4,7 @@
 
 	var config = [];
 
-	config.use_sticky_nav = true;
+	config.use_sticky_nav = false;
 	/* Whether to use sticky navigation (true | false) */
 
 /*
