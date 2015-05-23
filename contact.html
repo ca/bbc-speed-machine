@@ -16,49 +16,38 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
 
+  <style type="text/css">
+  /* Set a size for our map container, the Google Map will take up 100% of this container */
+  #map {
+    width: 100%;
+    height: 500px;
+  }
+  </style>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>      
+  <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', init);
+    function init() {
+      var mapOptions = {
+        disableDefaultUI: true,
+        zoom: 15,
+        center: new google.maps.LatLng(40.621016, -74.266587),
+        styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
+        };
+        var mapElement = document.getElementById('map');
+        var map = new google.maps.Map(mapElement, mapOptions);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.621016, -74.266587),
+          map: map,
+          title: 'BBC Speed & Machine'
+        });
+      }
+  </script>
+
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#sticky-nav-container" data-offset="40">
-
-  <section class="hero-unit text-center" style="background: url(http://nebula.wsimg.com/719afe0302d14ca63a7feeeb050d97be?AccessKeyId=C3F28B47FD18DF314CB1&disposition=0&alloworigin=1) center top transparent no-repeat;background-size:cover;color:white;">
-    <div class="container">
-      <h1>Hello World!</h1>
-      <h3 class="small">little description about BBC Speed &amp; Machine</h3>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor et dolore magna aliqua. <a href="#how-it-works" data-toggle="modal">See the magic!</a></p>
-    <div>
-    <!-- <div id="slider" class="carousel slide" data-carousel>
-      <div class="carousel-inner">
-        <div class="active item">
-          <img src="img/slider-browser.png" alt="slider image" />
-        </div>
-        <div class="item">
-          <img src="img/slider-phone.png" alt="slider image" /> 
-        </div>
-        <div class="item">
-          <a href="http://visual.ly/bp-oil-spill" rel="external"><img src="img/slider-macbook.png" data-tooltip title="BP Oil Spill | Visual.ly" alt="slider image" /></a>
-        </div>
-        <div class="item">
-          <img src="img/slider-ipad.png" alt="slider image" />
-        </div>
-        <div class="item">
-          <img src="img/slider-imac.png" alt="slider image" />
-        </div>
-      </div>
-
-      <a class="carousel-control left" href="#slider" data-slide="prev"></a>
-      <a class="carousel-control right" href="#slider" data-slide="next"></a>
-
-      <ul class="carousel-pager container hidden-phone">
-        <li class="active">&bull;</li>
-        <li>&bull;</li>
-        <li>&bull;</li>
-        <li>&bull;</li>
-        <li>&bull;</li>
-      </ul>
-    </div> -->
-  </section>
 
   <header id="header">
     <nav class="navbar navbar-fixed-top">
@@ -76,469 +65,99 @@
             margin: 0 0 20px 0; -->
           </a>
           <ul class="nav hidden-phone">
-            <li><a href="#header" title="">Home</a></li>
-            <li><a href="#features" title="">About</a></li>
+            <li><a href="/" title="">Home</a></li>
+            <li><a href="/about" title="">About</a></li>
             <li class="dropdown">
-              <a href="#screenshots" title="">Services</a>
+              <a href="#services" title="">Services</a>
               <ul>
                 <li><a href="/fabrication">Fabrication</a></li>
                 <li><a href="/repairs">Repairs</a></li>
               </ul>
             </li>
-            <li><a href="#closer-look" title="">Inventory</a></li>
-            <li><a href="#reviews" title="">Projects</a></li>
+            <li><a href="#reviews" title="">Inventory</a></li>
+            <li><a href="#closer-look" title="">Projects</a></li>
             <li><a href="#pricing" title="">Contact</a></li>           
           </ul>
           <div class="social-icons ar">
             <a class="social-network twitter"  data-tooltip data-placement="bottom" title="Follow us on Twitter" ></a>
             <a class="social-network linkedin" data-tooltip data-placement="bottom" title="Find us on LinkedIn"  ></a>
-            <a class="social-network dribbble" data-tooltip data-placement="bottom" title="Follow us on Dribbble"></a>
-            <a class="social-network gplus"    data-tooltip data-placement="bottom" title="Follow us on Dribbble"></a>
+            <!-- <a class="social-network dribbble" data-tooltip data-placement="bottom" title="Follow us on Dribbble"></a> -->
+            <a class="social-network gplus"    data-tooltip data-placement="bottom" title="Follow us on Google+"></a>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
-  
-
-  <section id="download">
-    <div class="container">
-
-      <div class="row">
-        <div class="span6">
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor et dolore magna aliqua. <a href="#how-it-works" data-toggle="modal">See the magic!</a></p>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal hide fade" id="how-it-works" tabindex="-1" role="dialog" data-width="900">
-          <iframe src="https://player.vimeo.com/video/38401630?color=E84E39&amp;title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" width="780" height="439"></iframe>
-        </div>
-
-        <div class="span6 ac download-buttons">
-          <a href="#"><img class="download-button" src="img/download-appstore.png" alt="" /></a>
-          <a href="#"><img class="download-button" src="img/download-google-play.png" alt="" /></a>
-        </div>
-      </div>
-
-      <!-- horizontal line -->
-      <hr />
-
-    </div>
+  <section class="hero-unit text-left" style="background: url(http://image.hotrod.com/f/21930260+w660+h495+q80+re0+cr1/hrdp_0902_04_z%2bold_school_speed_shops%2b.jpg) center -400px transparent no-repeat;background-size:cover;color:white;text-shadow:1px 1px 10px black;background-attachment:fixed">
+    <div class="container" style="margin-top:0px;margin-bottom:0px;max-width:75%">
+      <h1 style="font-size:72px;font-weight:bolder">Contact Us</h1>
+    <div>
   </section>
 
-  <section id="features">
+  <section>
     <div class="container">
-      <h2 class="hightlighted">Features you'll <b>love</b></h2>
-
       <div class="row">
-        <div class="span4">
-          <h3>
-            <img src="img/icons/leaf.png" alt="" />
-            All mobile platforms
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
+        <div class="col-lg-12 text-center">
+          <h1><b>BBC Speed &amp; Machine</b> has been restoring, maintaining and servicing muscle cars, street rods &amp; special interest vehicles for <span class="hightlighted">over 30 years.</span></h1>
         </div>
-        <div class="span4">
-          <h3>
-            <img src="img/icons/graph.png" alt="" />      
-            Real-time analytics
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-        <div class="span4">
-          <h3>
-            <img src="img/icons/laptop.png" alt="" />     
-            OS independent
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="span4">
-          <h3>
-            <img src="img/icons/stopwatch.png" alt="" />      
-            Fast as `hell`
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-        <div class="span4">
-          <h3>
-            <img src="img/icons/upload.png" alt="" />     
-            True cloud
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-        <div class="span4">
-          <h3>
-            <img src="img/icons/globe.png" alt="" />      
-            Multilingual support
-          </h3>
-          <p>
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>  
-
-
-  <!-- #Screenshots -->
-  <section id="screenshots">
-    <div class="container">
-
-      <div class="row">
-        
-        <div class="span4">
-          <!-- section heading -->
-          <h2>See it in action</h2>
-          <p>Cupcake ipsum dolor sit amet wafer gummi bears pudding applicake. Jujubes brownie powder. Sweet roll powder gingerbread gummies. Cupcake ice cream sweet roll pie lollipop. Jelly-o jelly-o apple pie chupa chups jelly jujubes gingerbread. Icing carrot cake powder chupa chups. Pudding sweet roll jelly-o muffin faworki biscuit. Marzipan marshmallow cake tiramisu caramels bear claw carrot cake cotton candy. Toffee danish sweet roll. </p>
-        </div>
-
-        <div class="span8">
-
-          <ul class="thumbnails">
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-1" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-2" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-3" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-4" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-5" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-6" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-7" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-            <li class="span2">
-            <a data-fancybox-group="gallery" href="http://placehold.it/800x600" class="thumbnail zoom" data-title-id="title-8" title="">
-              <img src="http://placehold.it/640x480" alt="" />
-            </a>
-            </li>
-
-          </ul>
-
-          <div class="hide" id="title-1">
-            <a href="http://creattica.com/mobile/pure-toutch-iphone-user-interface/82892" rel="external" title="">Pure Toutch iPhone User Interface</a> by mesbahismail
-          </div>
-          <div class="hide" id="title-2">
-            <a href="http://creattica.com/mobile/anchor-calendar-app/82857" rel="external" title="">Anchor Calendar App</a> by Alex tapein
-          </div>
-          <div class="hide" id="title-3">
-            <a href="http://creattica.com/mobile/tringa-mobile-template/76646" rel="external" title="">Tringa - Mobile Template</a> by Arianeet
-          </div>
-          <div class="hide" id="title-4">
-            <a href="http://creattica.com/mobile/sventh-sin/49064" rel="external" title="">Sventh Sin</a> by creattica
-          </div>
-          <div class="hide" id="title-5">
-            <a href="http://creattica.com/mobile/tablet-phone-user-interface-professional-set-v-5-mobile-dj/48828" rel="external" title="">Tablet/Phone User Interface Professional Set V. 5 Mobile DJ</a> by diegomonzon
-          </div>
-          <div class="hide" id="title-6">
-            <a href="http://creattica.com/mobile/pro-ui-set/63684" rel="external" title="">Pro UI Set</a> by Rafael Oliveira
-          </div>
-          <div class="hide" id="title-7">
-            <a href="http://creattica.com/mobile/android-theme-pandora/41909" rel="external" title="">Android Theme: Pandora</a> by App Juice
-          </div>
-          <div class="hide" id="title-8">
-            <a href="http://creattica.com/mobile/bzzy-app/57623" rel="external" title="">Bzzy App</a> by AG Fabrega
-          </div>
-          
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- #A closer look -->
-  <section id="closer-look">
-    <div class="container">
-
-      <!-- section heading -->
-      <h2>A closer look</h2>
-
-      <ul class="breadcrumbs">
-        <li><a href="#first" data-toggle="tab">Design</a></li>
-        <li class="active"><a href="#second" data-toggle="tab">Security</a></li>
-        <li><a href="#third" data-toggle="tab">Performance</a></li>
-        <li><a href="#fourth" data-toggle="tab">Speed</a></li>
-      </ul>
-
-      <div class="tab-content no-margin no-border">
-
-        <!-- Design -->
-        <div class="tab-pane fade in" id="first">
-
-          <div class="row">
-            <div class="span4">
-              <h4>Design</h4>
-              <p>
-                <b>Lorem ipsum dolor sit amet.</b> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <b>Donec id elit non mi porta gravida at eget metus.</b> Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-            </div>
-            <div class="span8">
-              <img src="img/features/design.jpg" alt="" />
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Design -->
-        <div class="tab-pane fade active in" id="second">
-
-          <div class="row">
-            <div class="span4">
-              <h4>Security</h4>
-              <p>
-                <b>Lorem ipsum dolor sit amet.</b> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-              <p>
-                <b>Donec id elit non mi porta gravida at eget metus.</b> Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              </p>
-            </div>
-            <div class="span8">
-              <img src="img/features/security.jpg" alt="" />
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Design -->
-        <div class="tab-pane fade in" id="third">
-
-          <div class="row">
-            <div class="span4">
-              <h4>Performance</h4>
-              <b>Lorem ipsum dolor sit amet.</b> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </div>
-            <div class="span8">
-              <img src="img/features/performance.jpg" alt="" />
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Design -->
-        <div class="tab-pane fade in" id="fourth">
-
-          <div class="row">
-            <div class="span4">
-              <h4>Speed</h4>
-              <b>Lorem ipsum dolor sit amet.</b> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-            </div>
-            <div class="span8">
-              <img src="img/features/design.jpg" alt="" />
-            </div>
-          </div>
-
-        </div>
-
-      </div>    
-
-    </div>
-  </section>
-
-
-  <!-- #Reviews -->
-  <section id="reviews">
-    <div class="container">
-
-      <!-- section heading -->
-      <h2>Reviews</h2>
-
-      <div class="row">
-        
-        <div class="span4 review">
-          <blockquote>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            </p>
-          </blockquote>
-          <em>
-            <img src="img/avatar.png" class="fl" alt="" />
-            <strong>JANE DOE</strong>
-            CEO at <a href="#">Aladin</a>
-          </em>
-        </div>
-
-        <div class="span4 review">
-          <blockquote>
-            <p>
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            </p>
-          </blockquote>
-          <em>
-            <img src="img/avatar.png" class="fl" alt="" />
-            <strong>JOHN DOE</strong>
-            CEO at <a href="#">Aladin</a>
-          </em>
-        </div>
-
-        <div class="span4 review">
-          <blockquote>
-            <p>
-              "I didn’t get into design to be an artist. To me, an artist creates things to evoke emotion. Being a designer goes a step further than that, not only trying to evoke emotion but trying to make a reaction. It is very objective-driven, and that’s what makes it interesting."
-            </p>
-          </blockquote>
-          <em>
-            <img src="img/avatar.png" class="fl" alt="" />
-            <strong>MIKE DAVIDSON</strong>
-            CEO at <a href="#">Aladin</a>
-          </em>
-        </div>
-
       </div>
     </div>
   </section>
 
-
-
-  <!-- #Pricing -->
-  <section id="pricing" class="pricing">
-
+  <section>
     <div class="container">
-
+      <!-- <h2 class="hightlighted">Services you'll <b>love</b></h2> -->
       <div class="row">
-
-        <!-- section heading -->
-        <h2 class="span12">Plans and pricing</h2>
-
-        <!-- Plan -->
-        <div class="plan green span3">
-          <h3 class="title">Basic</h3>
-          <h4 class="price gradient">$5.99</h4>
-          <div class="well">
-            <ul>
-              <li><i class="icon-ok"></i> 5 users</li>
-              <li><i class="icon-ok"></i> 1TB of space</li>
-              <li><i class="icon-remove"></i> Limited access</li>
-              <li><i class="icon-remove"></i> No support</li>
-            </ul>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
-            <p class="ac">
-              <a class="button small" href="#"><i class="icon-ok"></i>&nbsp; Select this plan</a>
-            </p>
-          </div>
+        <div class="col-lg-5">
+          <img src="img/mikeandjoe.jpeg" alt="Mike &amp; Joe Bontempo" class="img-thumbnail">    
         </div>
-        
-        <!-- Most popular plan-->
-        <div class="plan blue span3 most-popular">
-          <h3 class="title">Advanced</h3>
-          <h4 class="price gradient">$15.99</h4>
-          <div class="well">
-            <span class="ribbon"><span>POPULAR</span></span>
-            <ul>
-              <li><i class="icon-ok"></i> 20 users</li>
-              <li><i class="icon-ok"></i> Unlimited access</li>
-              <li><i class="icon-ok"></i> 3TB of space</li>
-              <li><i class="icon-ok"></i> E-mail support</li>
-            </ul>          
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
-            <p class="ac">
-              <a class="button small" href="#"><i class="icon-ok"></i>&nbsp; Select this plan</a>
-            </p>
-          </div>
+        <div class="col-lg-7">
+          <p class="lead">
+          Joe &amp; Mike Bontempo started in their parent's garage in Rahway, NJ. They have expanded many times over the years with their journey ending in Linden in 1990 to a  6000 square foot building.  Their facility incorporates a complete automotive &amp; general machine shop, as well as, fabricating &amp; welding areas. All work is done in house by skilled workers with years of experience.
+          </p>
         </div>
-
-        <!-- Plan -->
-        <div class="plan red span3">
-          <h3 class="title">Master</h3>
-          <h4 class="price gradient">$25.99</h4>
-          <div class="well">
-            <ul>
-              <li><i class="icon-ok"></i> Unlimited users</li>
-              <li><i class="icon-ok"></i> Unlimited access</li>
-              <li><i class="icon-ok"></i> 100TB of space</li>
-              <li><i class="icon-ok"></i> Phone &amp; e-mail support</li>
-            </ul>          
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
-            <p class="ac">
-              <a class="button small" href="#"><i class="icon-ok"></i>&nbsp; Select this plan</a>
-            </p>
-          </div>
-        </div>
-
-        <!-- Plan -->
-        <div class="plan grey span3">
-          <h3 class="title">Teams</h3>
-          <h4 class="price gradient">$49.99</h4>
-          <div class="well">
-            <ul>
-              <li><i class="icon-ok"></i> Unlimited users</li>
-              <li><i class="icon-ok"></i> Unlimited access</li>
-              <li><i class="icon-ok"></i> 1000 TB of space</li>
-              <li><i class="icon-ok"></i> Phone &amp; e-mail support</li>
-            </ul>          
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus.</p>
-            <p class="ac">
-              <a class="button small" href="#"><i class="icon-ok"></i>&nbsp; Select this plan</a>
-            </p>
-          </div>
-        </div>
-
-        <p class="clr guarantee"><br />* All plans comes with 90-day money-back guarantee, no question asked.</p>
-
       </div>
-
     </div>
   </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2>Whether automotive, industrial, marine, or medical, <span class="hightlighted" style="padding:5px">we will strive</span> for your satisfaction.</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="jumbotron"> -->
+    <!-- <div class="jumbotron"> -->
+      <!-- <div class="row"> -->
+        <div id="map"></div>
+        <!-- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=BBC%20Speed%20and%20Machine%20Linden%20NJ&key=AIzaSyA3qdGvLy4uyvNmG1L2wrdGkzCbW-XvpLg"></iframe> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
 
   <footer id="footer">
     <div class="container">
 
       <div class="row">
 
-        <div class="span4">
-          <a class="brand" title="">Solo</a> | &copy; 2012
+        <div class="col-lg-4">
+          <a class="brand">Bontempo Bros. Competition</a> | &copy; 2015
         </div>
-        <div class="span4 ac">
+        <div class="col-lg-4 ac">
           <strong>Any questions?</strong>
           <a href="#" data-tooltip title="twitter.com/solo" data-placement="right">Tweet us!</a>
         </div>
-        <div class="span4 ar">
+        <div class="col-lg-4 ar">
           <a class="social-network twitter"   title="Twitter"></a>
           <a class="social-network facebook"  title="Facebook"></a>
-          <a class="social-network skype"     title="Skype"></a>
-          <a class="social-network pinterest" title="Pinterest"></a>
+          <!-- <a class="social-network skype"     title="Skype"></a> -->
+          <a class="social-network gplus"     title="Google+"></a>
+          <!-- <a class="social-network pinterest" title="Pinterest"></a> -->
         </div>
       </div>
     </div>
