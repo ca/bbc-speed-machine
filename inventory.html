@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Contact | BBC Speed &amp; Machine</title>
+  <title>Inventory | BBC Speed &amp; Machine</title>
   <meta name="description" content="Page description">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,33 +15,6 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
-
-  <style type="text/css">
-  /* Set a size for our map container, the Google Map will take up 100% of this container */
-  #map {
-    width: 100%;
-    height: 500px;
-  }
-  </style>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>      
-  <script type="text/javascript">
-    google.maps.event.addDomListener(window, 'load', init);
-    function init() {
-      var mapOptions = {
-        disableDefaultUI: true,
-        zoom: 15,
-        center: new google.maps.LatLng(40.621016, -74.266587),
-        styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
-        };
-        var mapElement = document.getElementById('map');
-        var map = new google.maps.Map(mapElement, mapOptions);
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.621016, -74.266587),
-          map: map,
-          title: 'BBC Speed & Machine'
-        });
-      }
-  </script>
 
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,7 +39,7 @@
             </li>
             <li><a href="/inventory" title="">Inventory</a></li>
             <li><a href="/projects" title="">Projects</a></li>
-            <li><a href="/pricing" title="">Contact</a></li>           
+            <li><a href="/pricing" title="">Contact</a></li>
           </ul>
           <div class="social-icons ar">
             <a class="social-network twitter"   data-tooltip data-placement="bottom" title="Follow us on Twitter" href="https://twitter.com/BBCSpeed" target="_blank"></a>
@@ -81,57 +54,82 @@
 
   <section class="hero-unit text-left" style="background: url(img/header.jpg) center -600px transparent no-repeat;background-size:cover;color:white;text-shadow:1px 1px 10px black;background-attachment:fixed">
     <div class="container" style="margin-top:0px;margin-bottom:0px;max-width:75%">
-      <h1 style="font-size:72px;font-weight:bolder">Contact Us</h1>
+      <h1 style="font-size:72px;font-weight:bolder">Inventory</h1>
     <div>
+  </section>
+
+  <section id="download" style="margin-top:15px">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <p class="lead">Need parts for your classic? Contact us to see if we have what you need!</p>
+        </div>
+        <div class="col-lg-4 ac download-buttons">
+          <a href="/contact" class="btn btn-primary btn-lg" role="button">Schedule Now</a>
+        </div>
+      </div>
+      <hr />
+    </div>
   </section>
 
   <section>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1>Contact us any time to make an appointment with our experts.</h1>
-        </div>
+        <style>
+        .thumbnails li {
+          margin: 0;
+        }
+        </style>
+        <h2>Some photos of our inventory</h2>
+        <ul class="thumbnails">
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/1.jpeg" class="thumbnail zoom" data-title-id="title-1" title="">
+            <img src="img/inventory/1.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/2.jpeg" class="thumbnail zoom" data-title-id="title-2" title="">
+            <img src="img/inventory/2.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/3.jpeg" class="thumbnail zoom" data-title-id="title-3" title="">
+            <img src="img/inventory/3.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/4.jpeg" class="thumbnail zoom" data-title-id="title-3" title="">
+            <img src="img/inventory/4.jpeg" alt="" />
+          </a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <ul class="thumbnails">
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/5.jpeg" class="thumbnail zoom" data-title-id="title-1" title="">
+            <img src="img/inventory/5.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/6.jpeg" class="thumbnail zoom" data-title-id="title-2" title="">
+            <img src="img/inventory/6.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/7.jpeg" class="thumbnail zoom" data-title-id="title-3" title="">
+            <img src="img/inventory/7.jpeg" alt="" />
+          </a>
+          </li>
+          <li class="col-lg-3">
+          <a data-fancybox-group="gallery" href="img/inventory/8.jpeg" class="thumbnail zoom" data-title-id="title-3" title="">
+            <img src="img/inventory/8.jpeg" alt="" />
+          </a>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
-
-  <section>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-lg-4">
-          <h1><i class="glyphicon glyphicon-earphone"></i></h1>
-          <h2>
-            P: 908 862 6336<br>
-            F: 908 862 6338
-          </h2>
-        </div>
-        <div class="col-lg-4">
-          <h1><i class="glyphicon glyphicon-map-marker"></i></h1>
-          <h2>
-            1539 W Blancke Street<br>
-            Linden, NJ 07036
-          </h2>
-        </div>
-        <div class="col-lg-4">
-          <h1><i class="glyphicon glyphicon-time"></i></h1>
-          <h2>
-            8AM - 5PM<br>
-            Monday - Friday
-          </h2>
-        </div>
-      </div><br><br><br>
-      <div class="row">
-        <div class="col-lg-12">
-          <h1><i class="glyphicon glyphicon-envelope"></i></h1>
-          <h2>
-            <a href="mailto:Hiperfparts1539@yahoo.com">Hiperfparts1539@yahoo.com</a>
-          </h2>
-        </div>
-      </div>
-    </div>
-  </section>
-        
-  <div id="map"></div>
 
   <footer id="footer">
     <div class="container">
