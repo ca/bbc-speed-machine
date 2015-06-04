@@ -130,10 +130,17 @@
       for (var i = 0; i < results.length; i++) { 
         var object = results[i];
         var dateObj = new Date(object.get('date'));
-        var day = dateObj.getDate()+1;
+        var day = dateObj.getDate();
         var title = "<h1>"+object.get('title')+"</h1>";
+        var sponsor = "<div class='col-lg-3'></div>";
+        if (object.get('participant')) {
+          sponsor = "<div class='col-lg-3'><h1><h1><span class='label label-primary'>Participant</span></h1></div>"
+        }
         if (object.get('sponsor')) {
-          var sponsor = "<div class='col-lg-3'><h1><span class='label label-danger'>Sponsor</span></h1></div>";
+          sponsor = "<div class='col-lg-3'><h1><span class='label label-danger'>Sponsor</span></h1></div>";
+          if (object.get('participant')) {
+            sponsor = "<div class='col-lg-3'><h1><span class='label label-danger'>Sponsor</span></h1><h1><span class='label label-primary'>Participant</span></h1></div>";
+          }
         }
         console.log(object.get('sponsor'));
         var location  = "<h3 style='display:inline'> at <span class='red'>"+object.get('location')+"</span>";
