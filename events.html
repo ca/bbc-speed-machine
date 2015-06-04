@@ -69,83 +69,10 @@
     </div>
   </section>
 
-  <section>
+  <section id="events">
     <div class="container">
-      <!-- <h2 class="hightlighted">Services you'll <b>love</b></h2> -->
-      <div class="row">
-        <div class="col-lg-5">
-          <img src="img/mikeandjoe.jpeg" alt="Mike &amp; Joe Bontempo" class="img-thumbnail">    
-        </div>
-        <div class="col-lg-7">
-          <p class="lead">
-          Joe &amp; Mike Bontempo started in their parent's garage in Rahway, NJ. They have expanded many times over the years with their journey ending in Linden in 1990 to a  6000 square foot building.  Their facility incorporates a complete automotive &amp; general machine shop, as well as, fabricating &amp; welding areas. All work is done in house by skilled workers with years of experience.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <p class="lead">A large inventory of N.O.S. GM, Ford, and Mopar components including blocks, differentials, transmissions, heads, brackets &amp; pulleys complement our services.</p>
-        </div>
-        <div class="col-lg-6">
-          <p class="lead"> If you are looking for any N.O.S. parts, or if your car needs restoration, wiring or a simple service;  give us a call. We can help you complete your project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>Whether automotive, industrial, marine, or medical, <span class="hightlighted" style="padding:5px">we will strive</span> for your satisfaction.</h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-
-      <!-- section heading -->
-      <h2>Reviews</h2>
-
-      <div class="row">
-        
-        <div class="col-lg-4 text-center">
-          <a href="http://www.hotrod.com/features/hrdp-0902-old-school-speed-shops/" class="thumbnail" style="color:black" target="_blank">
-            <img src="img/hotrod1.jpeg" alt="Hot Rod Magazine" style="display:block">
-            <h2>Hot Rod Magazine</h2>
-            <p>Check out this article that features BBC in Hot Rod Magazine!</p>
-          </a>
-        </div>
-
-        <div class="col-lg-4 text-center">
-          <a href="http://www.hotrod.com/features/hrdp-0902-old-school-speed-shops/" class="thumbnail" style="color:black" target="_blank">
-            <img src="img/medical_journal.gif" alt="The Journal of the American Society of Anesthesiologists" style="display:block">
-            <h2>Anesthesiology Journal</h2>
-            <p>BBC's 3-Point Impact Bone Fracture machine was featured in a medical study by Anesthesiologists!</p>
-          </a>
-        </div>
-
-        <div class="col-lg-4 review">
-          <blockquote>
-            <p>
-              "If you're working on an older car, these guys can help you out."
-            </p>
-          </blockquote>
-          <em>
-            <img src="img/frank.jpg" class="fl" alt="" />
-            <strong>Frank Mistretta</strong>
-            from <a href="https://foursquare.com/v/bbc-speed-equipment-and-machine-shop/4cb8ba4e43ec6dcb2b2a9831">Foursquare</a>
-          </em>
-        </div>
-
-      </div>
+      <h2 class="hightlighted">Upcoming events</h2>
+      <br><br>
     </div>
   </section>
 
@@ -185,14 +112,14 @@
   Parse.initialize("izp2nf6gOxftTs3erJqy5jyAFJ9hv4Q26XsS8aFW", "LRAaGNzePDA5dQhGdDRxuFQsCCSh7h7qWcFgL6fr");
   var Event = Parse.Object.extend("Event");
   var eventQuery = new Parse.Query(Event);
-  // query.equalTo("playerName", "Dan Stemkoski");
   eventQuery.find({
     success: function(results) {
-      alert("Successfully retrieved " + results.length + " Events.");
-      // Do something with the returned Parse.Object values
       for (var i = 0; i < results.length; i++) { 
         var object = results[i];
-        console.log(object.id + ' - ' + object.get('title'));
+        var title = "<h1 style='display:inline'>"+object.get('title')+"</h1>";
+        var location  = "<h3 style='display:inline'> at "+object.get('location');
+        var date = " on "+object.get('date')+" at "+object.get('time')+"</h3>";
+        $("#events").find('.container').append( "<div class='row'>"+title+location+date+"</div><br><br>" );
       }
     },
     error: function(error) {
