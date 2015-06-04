@@ -28,7 +28,7 @@
     <nav class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="index.html" title="">BBC<br></a>
+          <a class="brand" href="/" title="">BBC<br></a>
           <ul class="nav hidden-phone">
             <li><a href="/" title="">Home</a></li>
             <li><a href="/about" title="">About</a></li>
@@ -72,15 +72,15 @@
   </section>
 
   <section id="events">
-    <div class="container text-center">
-      <h2 class="hightlighted text-left">Upcoming events</h2>
+    <div class="container">
+      <h2 class="hightlighted">Upcoming events</h2>
       <br><br>
     </div>
   </section>
 
   <section id="past-events">
-    <div class="container text-center">
-      <h2 class="hightlighted text-left">Past events</h2>
+    <div class="container">
+      <h2 class="hightlighted">Past events</h2>
       <br><br>
     </div>
   </section>
@@ -132,10 +132,15 @@
         var dateObj = new Date(object.get('date'));
         var day = dateObj.getDate()+1;
         var title = "<h1>"+object.get('title')+"</h1>";
+        if (object.get('sponsor')) {
+          var sponsor = "<div class='col-lg-3'><h1><span class='label label-danger'>Sponsor</span></h1></div>";
+        }
+        console.log(object.get('sponsor'));
         var location  = "<h3 style='display:inline'> at <span class='red'>"+object.get('location')+"</span>";
         var date = " on "+weekday[dateObj.getDay()] +", "+month[dateObj.getMonth()]+" "+day+" at "+object.get('time')+"</h3>";
-        if (dateObj > new Date()) {$("#events").find('.container').append( "<div class='row'>"+title+location+date+"</div><br><br>" );}
-        else {$("#past-events").find('.container').append( "<div class='row'>"+title+location+date+"</div><br><br>" );}
+        
+        if (dateObj > new Date()) {$("#events").find('.container').append( "<div class='row'><div class='col-lg-6 col-lg-offset-3'>"+title+location+date+"</div>"+sponsor+"</div><br><br>" );}
+        else {$("#past-events").find('.container').append( "<div class='row'><div class='col-lg-6 col-lg-offset-3'>"+title+location+date+"</div></div><br><br>" );}
       }
     },
     error: function(error) { alert("Error: " + error.code + " " + error.message); }

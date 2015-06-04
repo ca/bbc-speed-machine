@@ -26,7 +26,7 @@
     <nav class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="index.html" title="">BBC<br></a>
+          <a class="brand" href="/" title="">BBC<br></a>
           <ul class="nav hidden-phone">
             <li><a href="/" title="">Home</a></li>
             <li><a href="/about" title="">About</a></li>
@@ -109,6 +109,11 @@
               <label for="event-date">Event Time</label>
               <input type="time" class="form-control" id="event-time">
             </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="sponsor"> Sponsoring Event
+              </label>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
@@ -154,18 +159,22 @@
   
   $('#eventform').submit(function(e){
     e.preventDefault();
+    if ($('#sponsor').checked) { var sponsor = true; }
+    else { var sponsor = false; }
     var Event = Parse.Object.extend("Event");
     var eventObject = new Event();
     eventObject.save({
       title: $('#event-title').val(),
       location: $('#event-location').val(),
       date: $('#event-date').val(),
-      time: $('#event-time').val()
+      time: $('#event-time').val(),
+      sponsor: sponsor
     }).then(function(object) {
       $('#event-title').val('');
       $('#event-location').val('');
       $('#event-date').val('');
       $('#event-time').val('');
+      $('#sponsor').toggle(this.checked);
       $('#loginMessage').find('.inner-message').html("Event submitted!");
       $('#loginMessage').show();
       setTimeout(function(){
@@ -195,30 +204,6 @@
       }
     });
   });
-  // Parse.User.logOut();
-
-  // var currentUser = Parse.User.current();
-  // if (currentUser) {
-  //   console.log(currentUser)  
-  // } else {
-  //   console.log("error");
-  // }
-
-  // var user = new Parse.User();
-  // user.set("username", "bbc");
-  // user.set("password", "speed");
-  // user.set("email", "Hiperfparts1539@yahoo.com");
-
-  // user.signUp(null, {
-  //   success: function(user) {
-  //     // Hooray! Let them use the app now.
-  //     console.log("success");
-  //   },
-  //   error: function(user, error) {
-  //     // Show the error message somewhere and let the user try again.
-  //     alert("Error: " + error.code + " " + error.message);
-  //   }
-  // });
   </script>
 </body>
 </html>

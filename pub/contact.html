@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>About | BBC Speed &amp; Machine</title>
+  <title>Contact | BBC Speed &amp; Machine</title>
   <meta name="description" content="Page description">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,6 +15,33 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
+
+  <style type="text/css">
+  /* Set a size for our map container, the Google Map will take up 100% of this container */
+  #map {
+    width: 100%;
+    height: 500px;
+  }
+  </style>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>      
+  <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', init);
+    function init() {
+      var mapOptions = {
+        disableDefaultUI: true,
+        zoom: 15,
+        center: new google.maps.LatLng(40.621016, -74.266587),
+        styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}]
+        };
+        var mapElement = document.getElementById('map');
+        var map = new google.maps.Map(mapElement, mapOptions);
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.621016, -74.266587),
+          map: map,
+          title: 'BBC Speed & Machine'
+        });
+      }
+  </script>
 
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,7 +53,7 @@
     <nav class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="index.html" title="">BBC<br></a>
+          <a class="brand" href="/" title="">BBC<br></a>
           <ul class="nav hidden-phone">
             <li><a href="/" title="">Home</a></li>
             <li><a href="/about" title="">About</a></li>
@@ -55,7 +82,7 @@
 
   <section class="hero-unit text-left" style="background: url(img/header.jpg) center -600px transparent no-repeat;background-size:cover;color:white;text-shadow:1px 1px 10px black;background-attachment:fixed">
     <div class="container" style="margin-top:0px;margin-bottom:0px;max-width:75%">
-      <h1 style="font-size:72px;font-weight:bolder">About Us</h1>
+      <h1 style="font-size:72px;font-weight:bolder">Contact Us</h1>
     <div>
   </section>
 
@@ -63,91 +90,49 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1><b>BBC Speed &amp; Machine</b> has been restoring, maintaining and servicing muscle cars, street rods &amp; special interest vehicles for <span class="hightlighted">over 30 years.</span></h1>
+          <h1>Contact us any time to make an appointment with our experts.</h1>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="container">
-      <!-- <h2 class="hightlighted">Services you'll <b>love</b></h2> -->
+    <div class="container text-center">
       <div class="row">
-        <div class="col-lg-5">
-          <img src="img/mikeandjoe.jpeg" alt="Mike &amp; Joe Bontempo" class="img-thumbnail">    
+        <div class="col-lg-4">
+          <h1><i class="glyphicon glyphicon-earphone"></i></h1>
+          <h2>
+            P: 908 862 6336<br>
+            F: 908 862 6338
+          </h2>
         </div>
-        <div class="col-lg-7">
-          <p class="lead">
-          Joe &amp; Mike Bontempo started in their parent's garage in Rahway, NJ. They have expanded many times over the years with their journey ending in Linden in 1990 to a  6000 square foot building.  Their facility incorporates a complete automotive &amp; general machine shop, as well as, fabricating &amp; welding areas. All work is done in house by skilled workers with years of experience.
-          </p>
+        <div class="col-lg-4">
+          <h1><i class="glyphicon glyphicon-map-marker"></i></h1>
+          <h2>
+            1539 W Blancke Street<br>
+            Linden, NJ 07036
+          </h2>
+        </div>
+        <div class="col-lg-4">
+          <h1><i class="glyphicon glyphicon-time"></i></h1>
+          <h2>
+            8AM - 5PM<br>
+            Monday - Friday
+          </h2>
+        </div>
+      </div><br><br><br>
+      <div class="row">
+        <div class="col-lg-12">
+          <h1><i class="glyphicon glyphicon-envelope"></i></h1>
+          <h2>
+            <a href="mailto:Hiperfparts1539@yahoo.com">Hiperfparts1539@yahoo.com</a>
+          </h2>
         </div>
       </div>
     </div>
   </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <p class="lead">A large inventory of N.O.S. GM, Ford, and Mopar components including blocks, differentials, transmissions, heads, brackets &amp; pulleys complement our services.</p>
-        </div>
-        <div class="col-lg-6">
-          <p class="lead"> If you are looking for any N.O.S. parts, or if your car needs restoration, wiring or a simple service;  give us a call. We can help you complete your project.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>Whether automotive, industrial, marine, or medical, <span class="hightlighted" style="padding:5px">we will strive</span> for your satisfaction.</h2>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-
-      <!-- section heading -->
-      <h2>Reviews</h2>
-
-      <div class="row">
         
-        <div class="col-lg-4 text-center">
-          <a href="http://www.hotrod.com/features/hrdp-0902-old-school-speed-shops/" class="thumbnail" style="color:black" target="_blank">
-            <img src="img/hotrod1.jpeg" alt="Hot Rod Magazine" style="display:block">
-            <h2>Hot Rod Magazine</h2>
-            <p>Check out this article that features BBC in Hot Rod Magazine!</p>
-          </a>
-        </div>
-
-        <div class="col-lg-4 text-center">
-          <a href="http://www.hotrod.com/features/hrdp-0902-old-school-speed-shops/" class="thumbnail" style="color:black" target="_blank">
-            <img src="img/medical_journal.gif" alt="The Journal of the American Society of Anesthesiologists" style="display:block">
-            <h2>Anesthesiology Journal</h2>
-            <p>BBC's 3-Point Impact Bone Fracture machine was featured in a medical study by Anesthesiologists!</p>
-          </a>
-        </div>
-
-        <div class="col-lg-4 review">
-          <blockquote>
-            <p>
-              "If you're working on an older car, these guys can help you out."
-            </p>
-          </blockquote>
-          <em>
-            <img src="img/frank.jpg" class="fl" alt="" />
-            <strong>Frank Mistretta</strong>
-            from <a href="https://foursquare.com/v/bbc-speed-equipment-and-machine-shop/4cb8ba4e43ec6dcb2b2a9831">Foursquare</a>
-          </em>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  <div id="map"></div>
 
   <footer id="footer">
     <div class="container">
